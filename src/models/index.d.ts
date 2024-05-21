@@ -17,6 +17,7 @@ type EagerUserTrip = {
   readonly date?: string | null;
   readonly location?: string | null;
   readonly image?: string | null;
+  readonly prix?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -32,6 +33,7 @@ type LazyUserTrip = {
   readonly date?: string | null;
   readonly location?: string | null;
   readonly image?: string | null;
+  readonly prix?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

@@ -19,6 +19,7 @@ export const createUserTrip = /* GraphQL */ `mutation CreateUserTrip(
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version
@@ -42,6 +43,7 @@ export const updateUserTrip = /* GraphQL */ `mutation UpdateUserTrip(
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version
@@ -65,6 +67,7 @@ export const deleteUserTrip = /* GraphQL */ `mutation DeleteUserTrip(
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version

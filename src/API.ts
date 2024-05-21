@@ -9,6 +9,7 @@ export type CreateUserTripInput = {
   date?: string | null,
   location?: string | null,
   image?: string | null,
+  prix?: number | null,
   _version?: number | null,
 };
 
@@ -18,6 +19,7 @@ export type ModelUserTripConditionInput = {
   date?: ModelStringInput | null,
   location?: ModelStringInput | null,
   image?: ModelStringInput | null,
+  prix?: ModelFloatInput | null,
   and?: Array< ModelUserTripConditionInput | null > | null,
   or?: Array< ModelUserTripConditionInput | null > | null,
   not?: ModelUserTripConditionInput | null,
@@ -66,6 +68,18 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelFloatInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type ModelBooleanInput = {
   ne?: boolean | null,
   eq?: boolean | null,
@@ -81,6 +95,7 @@ export type UserTrip = {
   date?: string | null,
   location?: string | null,
   image?: string | null,
+  prix?: number | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -95,6 +110,7 @@ export type UpdateUserTripInput = {
   date?: string | null,
   location?: string | null,
   image?: string | null,
+  prix?: number | null,
   _version?: number | null,
 };
 
@@ -110,6 +126,7 @@ export type ModelUserTripFilterInput = {
   date?: ModelStringInput | null,
   location?: ModelStringInput | null,
   image?: ModelStringInput | null,
+  prix?: ModelFloatInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelUserTripFilterInput | null > | null,
@@ -148,6 +165,7 @@ export type ModelSubscriptionUserTripFilterInput = {
   date?: ModelSubscriptionStringInput | null,
   location?: ModelSubscriptionStringInput | null,
   image?: ModelSubscriptionStringInput | null,
+  prix?: ModelSubscriptionFloatInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionUserTripFilterInput | null > | null,
@@ -185,6 +203,18 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type ModelSubscriptionFloatInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  in?: Array< number | null > | null,
+  notIn?: Array< number | null > | null,
+};
+
 export type CreateUserTripMutationVariables = {
   input: CreateUserTripInput,
   condition?: ModelUserTripConditionInput | null,
@@ -199,6 +229,7 @@ export type CreateUserTripMutation = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -221,6 +252,7 @@ export type UpdateUserTripMutation = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -243,6 +275,7 @@ export type DeleteUserTripMutation = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -264,6 +297,7 @@ export type GetUserTripQuery = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -289,6 +323,7 @@ export type ListUserTripsQuery = {
       date?: string | null,
       location?: string | null,
       image?: string | null,
+      prix?: number | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -318,6 +353,7 @@ export type SyncUserTripsQuery = {
       date?: string | null,
       location?: string | null,
       image?: string | null,
+      prix?: number | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -342,6 +378,7 @@ export type OnCreateUserTripSubscription = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -363,6 +400,7 @@ export type OnUpdateUserTripSubscription = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -384,6 +422,7 @@ export type OnDeleteUserTripSubscription = {
     date?: string | null,
     location?: string | null,
     image?: string | null,
+    prix?: number | null,
     createdAt: string,
     updatedAt: string,
     _version: number,

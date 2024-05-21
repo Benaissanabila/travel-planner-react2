@@ -16,6 +16,7 @@ export const onCreateUserTrip = /* GraphQL */ `subscription OnCreateUserTrip($fi
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version
@@ -36,6 +37,7 @@ export const onUpdateUserTrip = /* GraphQL */ `subscription OnUpdateUserTrip($fi
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version
@@ -56,6 +58,7 @@ export const onDeleteUserTrip = /* GraphQL */ `subscription OnDeleteUserTrip($fi
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version

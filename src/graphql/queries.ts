@@ -16,6 +16,7 @@ export const getUserTrip = /* GraphQL */ `query GetUserTrip($id: ID!) {
     date
     location
     image
+    prix
     createdAt
     updatedAt
     _version
@@ -41,6 +42,7 @@ export const listUserTrips = /* GraphQL */ `query ListUserTrips(
       date
       location
       image
+      prix
       createdAt
       updatedAt
       _version
@@ -76,6 +78,7 @@ export const syncUserTrips = /* GraphQL */ `query SyncUserTrips(
       date
       location
       image
+      prix
       createdAt
       updatedAt
       _version

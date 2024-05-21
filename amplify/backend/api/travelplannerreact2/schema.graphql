@@ -10,6 +10,7 @@ type UserTrip @model {
   date: AWSDateTime
   location : String
   image:String
+  prix: Float
 }
 
 
