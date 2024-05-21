@@ -10,6 +10,11 @@
       "StackName": "amplify-travelplannerreact2-dev-96cae",
       "StackId": "arn:aws:cloudformation:us-east-1:730335385340:stack/amplify-travelplannerreact2-dev-96cae/30f4bd90-165d-11ef-9de6-0affef642e03",
       "AmplifyAppId": "d2cifli3iid0cn"
+    },
+    "categories": {
+      "api": {
+        "travelplannerreact2": {}
+      }
     }
   },
   "devnabila": {
