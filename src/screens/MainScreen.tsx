@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {ListTripEntry} from "../components/ListTripEntry";
 import {Box, Modal, Typography} from "@mui/material";
-import config from '../amplifyconfiguration.json';
+
 import {useState} from "react";
 import {Amplify} from 'aws-amplify';
 import {UserTrip} from "../models";
@@ -18,7 +18,7 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-Amplify.configure(config);
+
 
 export const MainScreen = ()=>{
     const {trips} = useTripContext();
