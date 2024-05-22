@@ -30,6 +30,7 @@ interface TripRow {
     location: string | null | undefined;
     date: string | null | undefined;
     image: string | null | undefined;
+    prix: number | null | undefined;
     isNew?: boolean;
 }
 interface EditToolbarProps {
@@ -71,7 +72,7 @@ export default function TripsGrid() {
             location: trip.location,
             date: trip.date,
             image: trip.image,
-
+            prix: trip.prix
         }));
         setRows(initialRows);
     }, [trips, setRows]);
@@ -110,6 +111,12 @@ export default function TripsGrid() {
         {
             field: 'image',
             headerName: 'Image',
+            editable: true,
+            width: 160
+        },
+        {
+            field: 'prix',
+            headerName: 'Prix',
             editable: true,
             width: 160
         },
@@ -216,6 +223,7 @@ export default function TripsGrid() {
                             updated.description = updatedRow?.description;
                             updated.location = updatedRow?.location;
                             updated.date = updatedRow?.date;
+                            updated.prix = updatedRow?.prix;
                             // updated._version = updatedRow?._version;
                         })
                     );

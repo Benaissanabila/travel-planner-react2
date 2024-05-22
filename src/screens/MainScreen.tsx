@@ -19,6 +19,7 @@ const style = {
     p: 4,
 };
 Amplify.configure(config);
+
 export const MainScreen = ()=>{
     const {trips} = useTripContext();
     const [open, setOpen] = useState(false);
@@ -76,6 +77,7 @@ export const MainScreen = ()=>{
                     </Typography>
                 </Box>
             </Modal>
+
         </div>
     )
 }
