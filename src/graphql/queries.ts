@@ -95,3 +95,87 @@ export const syncUserTrips = /* GraphQL */ `query SyncUserTrips(
   APITypes.SyncUserTripsQueryVariables,
   APITypes.SyncUserTripsQuery
 >;
+export const getUserProfile = /* GraphQL */ `query GetUserProfile($id: ID!) {
+  getUserProfile(id: $id) {
+    id
+    userId
+    name
+    email
+    avatarUrl
+    bio
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetUserProfileQueryVariables,
+  APITypes.GetUserProfileQuery
+>;
+export const listUserProfiles = /* GraphQL */ `query ListUserProfiles(
+  $filter: ModelUserProfileFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserProfiles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userId
+      name
+      email
+      avatarUrl
+      bio
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListUserProfilesQueryVariables,
+  APITypes.ListUserProfilesQuery
+>;
+export const syncUserProfiles = /* GraphQL */ `query SyncUserProfiles(
+  $filter: ModelUserProfileFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUserProfiles(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      userId
+      name
+      email
+      avatarUrl
+      bio
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncUserProfilesQueryVariables,
+  APITypes.SyncUserProfilesQuery
+>;

@@ -17,6 +17,9 @@
       },
       "auth": {
         "travelplannerreact2db1430ca": {}
+      },
+      "function": {
+        "travelplanner": {}
       }
     }
   },

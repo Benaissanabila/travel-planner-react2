@@ -119,6 +119,64 @@ export type DeleteUserTripInput = {
   _version?: number | null,
 };
 
+export type CreateUserProfileInput = {
+  id?: string | null,
+  userId: string,
+  name?: string | null,
+  email?: string | null,
+  avatarUrl?: string | null,
+  bio?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  _version?: number | null,
+};
+
+export type ModelUserProfileConditionInput = {
+  userId?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  email?: ModelStringInput | null,
+  avatarUrl?: ModelStringInput | null,
+  bio?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelUserProfileConditionInput | null > | null,
+  or?: Array< ModelUserProfileConditionInput | null > | null,
+  not?: ModelUserProfileConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type UserProfile = {
+  __typename: "UserProfile",
+  id: string,
+  userId: string,
+  name?: string | null,
+  email?: string | null,
+  avatarUrl?: string | null,
+  bio?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type UpdateUserProfileInput = {
+  id: string,
+  userId?: string | null,
+  name?: string | null,
+  email?: string | null,
+  avatarUrl?: string | null,
+  bio?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  _version?: number | null,
+};
+
+export type DeleteUserProfileInput = {
+  id: string,
+  _version?: number | null,
+};
+
 export type ModelUserTripFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -154,6 +212,28 @@ export type ModelIDInput = {
 export type ModelUserTripConnection = {
   __typename: "ModelUserTripConnection",
   items:  Array<UserTrip | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type ModelUserProfileFilterInput = {
+  id?: ModelIDInput | null,
+  userId?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  email?: ModelStringInput | null,
+  avatarUrl?: ModelStringInput | null,
+  bio?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelUserProfileFilterInput | null > | null,
+  or?: Array< ModelUserProfileFilterInput | null > | null,
+  not?: ModelUserProfileFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelUserProfileConnection = {
+  __typename: "ModelUserProfileConnection",
+  items:  Array<UserProfile | null >,
   nextToken?: string | null,
   startedAt?: number | null,
 };
@@ -213,6 +293,20 @@ export type ModelSubscriptionFloatInput = {
   between?: Array< number | null > | null,
   in?: Array< number | null > | null,
   notIn?: Array< number | null > | null,
+};
+
+export type ModelSubscriptionUserProfileFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  userId?: ModelSubscriptionStringInput | null,
+  name?: ModelSubscriptionStringInput | null,
+  email?: ModelSubscriptionStringInput | null,
+  avatarUrl?: ModelSubscriptionStringInput | null,
+  bio?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionUserProfileFilterInput | null > | null,
+  or?: Array< ModelSubscriptionUserProfileFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type CreateUserTripMutationVariables = {
@@ -278,6 +372,72 @@ export type DeleteUserTripMutation = {
     prix?: number | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type CreateUserProfileMutationVariables = {
+  input: CreateUserProfileInput,
+  condition?: ModelUserProfileConditionInput | null,
+};
+
+export type CreateUserProfileMutation = {
+  createUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdateUserProfileMutationVariables = {
+  input: UpdateUserProfileInput,
+  condition?: ModelUserProfileConditionInput | null,
+};
+
+export type UpdateUserProfileMutation = {
+  updateUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeleteUserProfileMutationVariables = {
+  input: DeleteUserProfileInput,
+  condition?: ModelUserProfileConditionInput | null,
+};
+
+export type DeleteUserProfileMutation = {
+  deleteUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -365,6 +525,84 @@ export type SyncUserTripsQuery = {
   } | null,
 };
 
+export type GetUserProfileQueryVariables = {
+  id: string,
+};
+
+export type GetUserProfileQuery = {
+  getUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListUserProfilesQueryVariables = {
+  filter?: ModelUserProfileFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListUserProfilesQuery = {
+  listUserProfiles?:  {
+    __typename: "ModelUserProfileConnection",
+    items:  Array< {
+      __typename: "UserProfile",
+      id: string,
+      userId: string,
+      name?: string | null,
+      email?: string | null,
+      avatarUrl?: string | null,
+      bio?: string | null,
+      createdAt?: string | null,
+      updatedAt?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncUserProfilesQueryVariables = {
+  filter?: ModelUserProfileFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncUserProfilesQuery = {
+  syncUserProfiles?:  {
+    __typename: "ModelUserProfileConnection",
+    items:  Array< {
+      __typename: "UserProfile",
+      id: string,
+      userId: string,
+      name?: string | null,
+      email?: string | null,
+      avatarUrl?: string | null,
+      bio?: string | null,
+      createdAt?: string | null,
+      updatedAt?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
 export type OnCreateUserTripSubscriptionVariables = {
   filter?: ModelSubscriptionUserTripFilterInput | null,
 };
@@ -425,6 +663,69 @@ export type OnDeleteUserTripSubscription = {
     prix?: number | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreateUserProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionUserProfileFilterInput | null,
+};
+
+export type OnCreateUserProfileSubscription = {
+  onCreateUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdateUserProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionUserProfileFilterInput | null,
+};
+
+export type OnUpdateUserProfileSubscription = {
+  onUpdateUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeleteUserProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionUserProfileFilterInput | null,
+};
+
+export type OnDeleteUserProfileSubscription = {
+  onDeleteUserProfile?:  {
+    __typename: "UserProfile",
+    id: string,
+    userId: string,
+    name?: string | null,
+    email?: string | null,
+    avatarUrl?: string | null,
+    bio?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,

@@ -2,11 +2,11 @@ import styled from "styled-components";
 import {ListTripEntry} from "../components/ListTripEntry";
 import {Box, Modal, Typography} from "@mui/material";
 
-import {useState} from "react";
-import {Amplify} from 'aws-amplify';
+import {useEffect, useState} from "react";
+
 import {UserTrip} from "../models";
 import {useTripContext} from "../context/TripContext";
-
+import { getCurrentUser } from 'aws-amplify/auth';
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -18,14 +18,31 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-
+async function currentAuthenticatedUser() {
+    try {
+        const { username, userId, signInDetails } = await getCurrentUser();
+        console.log(`The username: ${username}`);
+        console.log(`The userId: ${userId}`);
+        console.log(`The signInDetails: ${signInDetails}`);
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 export const MainScreen = ()=>{
     const {trips} = useTripContext();
     const [open, setOpen] = useState(false);
     const [selectedTrip, setSelectedTrip] = useState <UserTrip |null>(null)
-    /*const [trips, setTrips] = useState<UserTrip[] >([]);
+    const [userId, setUserId] = useState<string | null>(null);
 
+    useEffect(() => {
+        getCurrentUser().then(({userId}) => {
+            setUserId(userId);
+        })
+    }, []);
+
+    /*const [trips, setTrips] = useState<UserTrip[] >([]);
+useEffect(() => {
     useEffect(() => {
         const loadUserTrips = async () => {
             try{
@@ -47,9 +64,10 @@ export const MainScreen = ()=>{
 
     return(
         <div>
-            <h1>
-                My planned Trips
-            </h1>
+            <h1>My Planned Trips</h1>
+            {
+                userId && <p>User ID: {userId}</p>
+            }
             <ListTrips>
                 {trips.map((trip:UserTrip)=>(
                     <ListTripEntry

@@ -13,4 +13,15 @@ type UserTrip @model {
   prix: Float
 }
 
+type UserProfile @model {
+  id: ID!
+  userId: String!
+  name: String
+  email: String
+  avatarUrl: String
+  bio: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
 

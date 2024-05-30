@@ -14,6 +14,8 @@ import {Authenticator} from "@aws-amplify/ui-react";
 import '@aws-amplify/ui-react/styles.css';
 import config from './amplifyconfiguration.json';
 import {Amplify} from "aws-amplify";
+import Profil from "./screens/Profil";
+
 Amplify.configure(config);
 const router = createBrowserRouter([
     {
@@ -24,6 +26,11 @@ const router = createBrowserRouter([
         path: "/edit",
         element: <TripEditorSreen/>,
     },
+    {
+        path: "/profil",
+        element: <Profil />
+    }
+
 ]);
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

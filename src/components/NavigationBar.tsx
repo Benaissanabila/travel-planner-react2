@@ -21,7 +21,10 @@ const pages = [{
 }];
 const settings = [
     {
-        name:'Profile'
+        name:'Profil',
+        callback: () => {
+            window.location.href = '/profil'
+        }
     },
     {
         name:'Account'
