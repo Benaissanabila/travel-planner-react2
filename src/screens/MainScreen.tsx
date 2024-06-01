@@ -7,6 +7,9 @@ import {useEffect, useState} from "react";
 import {UserTrip} from "../models";
 import {useTripContext} from "../context/TripContext";
 import { getCurrentUser } from 'aws-amplify/auth';
+import axios from "axios";
+import Weather from "../components/WeatherBox";
+import WeatherBox from "../components/WeatherBox";
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -34,6 +37,18 @@ export const MainScreen = ()=>{
     const [open, setOpen] = useState(false);
     const [selectedTrip, setSelectedTrip] = useState <UserTrip |null>(null)
     const [userId, setUserId] = useState<string | null>(null);
+
+    // useEffect(() => {
+    //     axios.get('https://gsbgkipz82.execute-api.us-east-1.amazonaws.com/dev', {
+    //         headers: {
+    //             'Authorization': 'Bearer VOTRE_ACCESS_TOKEN'
+    //         }
+    //     }).then(res => {
+    //         console.log(res.data);
+    //     }).catch(error=>{
+    //         console.log(error);
+    //     });
+    // }, []);
 
     useEffect(() => {
         getCurrentUser().then(({userId}) => {
@@ -87,12 +102,10 @@ useEffect(() => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {selectedTrip?.name}
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        {selectedTrip?.description}
-                    </Typography>
+                    {selectedTrip && selectedTrip.date && (
+                        <WeatherBox country={selectedTrip.name} date={new Date(selectedTrip.date)} />
+                    )}
+
                 </Box>
             </Modal>
 

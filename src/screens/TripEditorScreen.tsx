@@ -9,7 +9,7 @@ export const TripEditorSreen = ()=>{
     }, []);
     return(
         <div>
-            <h1>TripEditorSreen</h1>
+            <h1>TripEditorScreen</h1>
             <TripsGrid/>
         </div>
     )

@@ -13,13 +13,17 @@
     },
     "categories": {
       "api": {
-        "travelplannerreact2": {}
+        "travelplannerreact2": {},
+        "travelplanner": {}
       },
       "auth": {
         "travelplannerreact2db1430ca": {}
       },
       "function": {
-        "travelplanner": {}
+        "travelplanner": {
+          "deploymentBucketName": "amplify-travelplannerreact2-dev-96cae-deployment",
+          "s3Key": "amplify-builds/travelplanner-4170473763694b4e7a67-build.zip"
+        }
       }
     }
   },

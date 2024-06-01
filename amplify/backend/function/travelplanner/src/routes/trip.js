@@ -16,7 +16,7 @@ router.put("/:id/update", trip_controller.trip_update);
 router.get("/:id", trip_controller.trip_detail);
 
 // GET request for list of all Book items.
-router.get("/trips", trip_controller.trip_list);
+router.get("/", trip_controller.trip_list);
 
 
 module.exports = router;

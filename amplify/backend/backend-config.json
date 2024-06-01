@@ -1,5 +1,19 @@
 {
   "api": {
+    "travelplanner": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "travelplanner"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "travelplannerreact2": {
       "dependsOn": [],
       "output": {
@@ -52,6 +66,24 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_travelplanner_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "travelplanner"
+        }
+      ]
+    },
+    "AMPLIFY_function_travelplanner_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "travelplanner"
+        }
+      ]
     }
   }
 }
